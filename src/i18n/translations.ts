@@ -1,0 +1,402 @@
+export type Language = 'en' | 'ja' | 'fr' | 'ko';
+
+export const languageNames: Record<Language, string> = {
+  en: 'English',
+  ja: '日本語',
+  fr: 'Français',
+  ko: '한국어',
+};
+
+export const languageLocales: Record<Language, string> = {
+  en: 'en-US',
+  ja: 'ja-JP',
+  fr: 'fr-FR',
+  ko: 'ko-KR',
+};
+
+export const translations: Record<Language, Record<string, string>> = {
+  en: {
+    // App
+    appName: 'Tasca',
+    loading: 'Loading...',
+    
+    // Auth
+    welcomeBack: 'Welcome back',
+    signIn: 'Sign In',
+    signUp: 'Sign Up',
+    createAccount: 'Create Account',
+    email: 'Email',
+    password: 'Password',
+    confirmPassword: 'Confirm Password',
+    emailPlaceholder: 'you@example.com',
+    passwordPlaceholder: '••••••••',
+    signingIn: 'Signing in...',
+    creatingAccount: 'Creating account...',
+    noAccount: "Don't have an account?",
+    minPassword: 'Minimum 6 characters',
+    passwordsMatch: '✓ Passwords match',
+    passwordsNoMatch: '✗ Passwords do not match',
+    loginFailed: 'Login Failed',
+    signupFailed: 'Signup Failed',
+    accountCreated: 'Account Created!',
+    confirmEmailSent: "We've sent a confirmation email to",
+    checkInbox: 'Please check your inbox and verify your email before signing in.',
+    continueToSignIn: 'Continue to Sign In',
+    setupRequired: 'Setup Required',
+    configureEnv: 'Configure environment variables',
+    
+    // Tabs
+    today: 'Today',
+    history: 'History',
+    
+    // Todo
+    whatNeedsToBeDone: 'What needs to be done?',
+    allCaughtUp: 'All caught up!',
+    addNewTask: 'Add a new task to get started',
+    createdAgo: 'Created',
+    completedAgo: 'Completed',
+    justNow: 'just now',
+    minutesAgo: 'm ago',
+    hoursAgo: 'h ago',
+    yesterday: 'yesterday',
+    daysAgo: 'd ago',
+    
+    // Todo details
+    link: 'Link',
+    output: 'Output',
+    addUrl: '+ Add URL',
+    addOutput: '+ Add Output',
+    edit: 'Edit',
+    save: 'Save',
+    cancel: 'Cancel',
+    outputPlaceholder: 'Record your learnings and achievements...',
+    tapToEdit: 'Tap to edit',
+    loadingTasks: 'Loading tasks...',
+    
+    // History
+    noHistoryYet: 'No History Yet',
+    completedFromPreviousDays: 'Completed todos from previous days will appear here',
+    completed: 'Completed',
+    withOutput: 'With Output',
+    days: 'Days',
+    
+    // Contribution Graph
+    activity: 'Activity',
+    tasksCompletedTheLastYear: 'tasks completed in the last year',
+    totalCompleted: 'Total Completed',
+    longestStreak: 'Longest Streak',
+    currentStreak: 'Current Streak',
+    
+    // Settings
+    settings: 'Settings',
+    account: 'Account',
+    userId: 'User ID',
+    theme: 'THEME',
+    systemDefault: 'System Default',
+    light: 'Light',
+    dark: 'Dark',
+    language: 'Language',
+    signOut: 'Sign Out',
+    
+    // Errors
+    error: 'Error',
+    inputError: 'Input Error',
+    failedToFetchTodos: 'Failed to fetch todos',
+    failedToAddTodo: 'Failed to add todo',
+    failedToUpdateTodo: 'Failed to update todo',
+    failedToDeleteTodo: 'Failed to delete todo',
+    failedToSaveOutput: 'Failed to save output',
+    failedToSaveUrl: 'Failed to save URL',
+    failedToSignOut: 'Failed to sign out',
+    loginRequired: 'Login required',
+  },
+  
+  ja: {
+    // App
+    appName: 'Tasca',
+    loading: '読み込み中...',
+    
+    // Auth
+    welcomeBack: 'おかえりなさい',
+    signIn: 'ログイン',
+    signUp: '新規登録',
+    createAccount: 'アカウント作成',
+    email: 'メールアドレス',
+    password: 'パスワード',
+    confirmPassword: 'パスワード確認',
+    emailPlaceholder: 'you@example.com',
+    passwordPlaceholder: '••••••••',
+    signingIn: 'ログイン中...',
+    creatingAccount: 'アカウント作成中...',
+    noAccount: 'アカウントをお持ちでない方',
+    minPassword: '6文字以上',
+    passwordsMatch: '✓ パスワードが一致しました',
+    passwordsNoMatch: '✗ パスワードが一致しません',
+    loginFailed: 'ログイン失敗',
+    signupFailed: '登録失敗',
+    accountCreated: 'アカウント作成完了！',
+    confirmEmailSent: '確認メールを送信しました',
+    checkInbox: 'ログイン前にメールを確認して認証を完了してください。',
+    continueToSignIn: 'ログインへ進む',
+    setupRequired: 'セットアップが必要です',
+    configureEnv: '環境変数を設定してください',
+    
+    // Tabs
+    today: '今日',
+    history: '履歴',
+    
+    // Todo
+    whatNeedsToBeDone: '何をする？',
+    allCaughtUp: 'すべて完了！',
+    addNewTask: '新しいタスクを追加しましょう',
+    createdAgo: '作成',
+    completedAgo: '完了',
+    justNow: 'たった今',
+    minutesAgo: '分前',
+    hoursAgo: '時間前',
+    yesterday: '昨日',
+    daysAgo: '日前',
+    
+    // Todo details
+    link: 'リンク',
+    output: 'アウトプット',
+    addUrl: '+ URL追加',
+    addOutput: '+ アウトプット追加',
+    edit: '編集',
+    save: '保存',
+    cancel: 'キャンセル',
+    outputPlaceholder: '学んだことや成果を記録...',
+    tapToEdit: 'タップして編集',
+    loadingTasks: 'タスクを読み込み中...',
+    
+    // History
+    noHistoryYet: '履歴がありません',
+    completedFromPreviousDays: '過去に完了したタスクがここに表示されます',
+    completed: '完了',
+    withOutput: 'アウトプット',
+    days: '日数',
+    
+    // Contribution Graph
+    activity: 'アクティビティ',
+    tasksCompletedTheLastYear: '件のタスクを過去1年間で完了',
+    totalCompleted: '総完了数',
+    longestStreak: '最長継続',
+    currentStreak: '現在の継続',
+    
+    // Settings
+    settings: '設定',
+    account: 'アカウント',
+    userId: 'ユーザーID',
+    theme: 'テーマ',
+    systemDefault: 'システム設定',
+    light: 'ライト',
+    dark: 'ダーク',
+    language: '言語',
+    signOut: 'ログアウト',
+    
+    // Errors
+    error: 'エラー',
+    inputError: '入力エラー',
+    failedToFetchTodos: 'タスクの取得に失敗しました',
+    failedToAddTodo: 'タスクの追加に失敗しました',
+    failedToUpdateTodo: 'タスクの更新に失敗しました',
+    failedToDeleteTodo: 'タスクの削除に失敗しました',
+    failedToSaveOutput: 'アウトプットの保存に失敗しました',
+    failedToSaveUrl: 'URLの保存に失敗しました',
+    failedToSignOut: 'ログアウトに失敗しました',
+    loginRequired: 'ログインが必要です',
+  },
+  
+  fr: {
+    // App
+    appName: 'Tasca',
+    loading: 'Chargement...',
+    
+    // Auth
+    welcomeBack: 'Bon retour',
+    signIn: 'Connexion',
+    signUp: "S'inscrire",
+    createAccount: 'Créer un compte',
+    email: 'E-mail',
+    password: 'Mot de passe',
+    confirmPassword: 'Confirmer le mot de passe',
+    emailPlaceholder: 'vous@exemple.com',
+    passwordPlaceholder: '••••••••',
+    signingIn: 'Connexion en cours...',
+    creatingAccount: 'Création du compte...',
+    noAccount: "Vous n'avez pas de compte ?",
+    minPassword: 'Minimum 6 caractères',
+    passwordsMatch: '✓ Les mots de passe correspondent',
+    passwordsNoMatch: '✗ Les mots de passe ne correspondent pas',
+    loginFailed: 'Échec de la connexion',
+    signupFailed: "Échec de l'inscription",
+    accountCreated: 'Compte créé !',
+    confirmEmailSent: 'Nous avons envoyé un e-mail de confirmation à',
+    checkInbox: 'Veuillez vérifier votre boîte de réception avant de vous connecter.',
+    continueToSignIn: 'Continuer vers la connexion',
+    setupRequired: 'Configuration requise',
+    configureEnv: "Configurez les variables d'environnement",
+    
+    // Tabs
+    today: "Aujourd'hui",
+    history: 'Historique',
+    
+    // Todo
+    whatNeedsToBeDone: 'Que faut-il faire ?',
+    allCaughtUp: 'Tout est fait !',
+    addNewTask: 'Ajoutez une nouvelle tâche pour commencer',
+    createdAgo: 'Créé',
+    completedAgo: 'Terminé',
+    justNow: "à l'instant",
+    minutesAgo: 'min',
+    hoursAgo: 'h',
+    yesterday: 'hier',
+    daysAgo: 'j',
+    
+    // Todo details
+    link: 'Lien',
+    output: 'Notes',
+    addUrl: '+ Ajouter URL',
+    addOutput: '+ Ajouter notes',
+    edit: 'Modifier',
+    save: 'Enregistrer',
+    cancel: 'Annuler',
+    outputPlaceholder: 'Enregistrez vos apprentissages et réalisations...',
+    tapToEdit: 'Appuyez pour modifier',
+    loadingTasks: 'Chargement des tâches...',
+    
+    // History
+    noHistoryYet: "Pas encore d'historique",
+    completedFromPreviousDays: 'Les tâches terminées des jours précédents apparaîtront ici',
+    completed: 'Terminées',
+    withOutput: 'Avec notes',
+    days: 'Jours',
+    
+    // Contribution Graph
+    activity: 'Activité',
+    tasksCompletedTheLastYear: 'tâches terminées l\'année dernière',
+    totalCompleted: 'Total terminé',
+    longestStreak: 'Plus longue série',
+    currentStreak: 'Série actuelle',
+    
+    // Settings
+    settings: 'Paramètres',
+    account: 'Compte',
+    userId: 'ID utilisateur',
+    theme: 'THÉME',
+    systemDefault: 'Système par défaut',
+    light: 'Clair',
+    dark: 'Sombre',
+    language: 'Langue',
+    signOut: 'Déconnexion',
+    
+    // Errors
+    error: 'Erreur',
+    inputError: 'Erreur de saisie',
+    failedToFetchTodos: 'Échec de la récupération des tâches',
+    failedToAddTodo: "Échec de l'ajout de la tâche",
+    failedToUpdateTodo: 'Échec de la mise à jour de la tâche',
+    failedToDeleteTodo: 'Échec de la suppression de la tâche',
+    failedToSaveOutput: "Échec de l'enregistrement des notes",
+    failedToSaveUrl: "Échec de l'enregistrement de l'URL",
+    failedToSignOut: 'Échec de la déconnexion',
+    loginRequired: 'Connexion requise',
+  },
+  
+  ko: {
+    // App
+    appName: 'Tasca',
+    loading: '로딩 중...',
+    
+    // Auth
+    welcomeBack: '다시 오신 것을 환영합니다',
+    signIn: '로그인',
+    signUp: '회원가입',
+    createAccount: '계정 만들기',
+    email: '이메일',
+    password: '비밀번호',
+    confirmPassword: '비밀번호 확인',
+    emailPlaceholder: 'you@example.com',
+    passwordPlaceholder: '••••••••',
+    signingIn: '로그인 중...',
+    creatingAccount: '계정 생성 중...',
+    noAccount: '계정이 없으신가요?',
+    minPassword: '최소 6자',
+    passwordsMatch: '✓ 비밀번호가 일치합니다',
+    passwordsNoMatch: '✗ 비밀번호가 일치하지 않습니다',
+    loginFailed: '로그인 실패',
+    signupFailed: '가입 실패',
+    accountCreated: '계정이 생성되었습니다!',
+    confirmEmailSent: '확인 이메일을 보냈습니다',
+    checkInbox: '로그인하기 전에 이메일을 확인하고 인증을 완료해주세요.',
+    continueToSignIn: '로그인으로 이동',
+    setupRequired: '설정이 필요합니다',
+    configureEnv: '환경 변수를 설정하세요',
+    
+    // Tabs
+    today: '오늘',
+    history: '기록',
+    
+    // Todo
+    whatNeedsToBeDone: '무엇을 해야 하나요?',
+    allCaughtUp: '모두 완료!',
+    addNewTask: '새 작업을 추가하세요',
+    createdAgo: '생성',
+    completedAgo: '완료',
+    justNow: '방금',
+    minutesAgo: '분 전',
+    hoursAgo: '시간 전',
+    yesterday: '어제',
+    daysAgo: '일 전',
+    
+    // Todo details
+    link: '링크',
+    output: '메모',
+    addUrl: '+ URL 추가',
+    addOutput: '+ 메모 추가',
+    edit: '수정',
+    save: '저장',
+    cancel: '취소',
+    outputPlaceholder: '배운 것과 성과를 기록하세요...',
+    tapToEdit: '탭하여 수정',
+    loadingTasks: '작업 로딩 중...',
+    
+    // History
+    noHistoryYet: '기록 없음',
+    completedFromPreviousDays: '이전에 완료한 작업이 여기에 표시됩니다',
+    completed: '완료',
+    withOutput: '메모 있음',
+    days: '일',
+    
+    // Contribution Graph
+    activity: '활동',
+    tasksCompletedTheLastYear: '개의 작업을 지난 1년간 완료',
+    totalCompleted: '총 완료',
+    longestStreak: '최장 연속',
+    currentStreak: '현재 연속',
+    
+    // Settings
+    settings: '설정',
+    account: '계정',
+    userId: '사용자 ID',
+    theme: '테마',
+    systemDefault: '시스템 기본값',
+    light: '라이트',
+    dark: '다크',
+    language: '언어',
+    signOut: '로그아웃',
+    
+    // Errors
+    error: '오류',
+    inputError: '입력 오류',
+    failedToFetchTodos: '작업을 불러오지 못했습니다',
+    failedToAddTodo: '작업을 추가하지 못했습니다',
+    failedToUpdateTodo: '작업을 업데이트하지 못했습니다',
+    failedToDeleteTodo: '작업을 삭제하지 못했습니다',
+    failedToSaveOutput: '메모를 저장하지 못했습니다',
+    failedToSaveUrl: 'URL을 저장하지 못했습니다',
+    failedToSignOut: '로그아웃에 실패했습니다',
+    loginRequired: '로그인이 필요합니다',
+  },
+};
+
