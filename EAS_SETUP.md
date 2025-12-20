@@ -50,30 +50,6 @@ npx eas init
 }
 ```
 
-### 4. eas.json の提出設定
-
-`eas.json` の `submit.production.ios` セクションを更新：
-
-```json
-{
-  "submit": {
-    "production": {
-      "ios": {
-        "appleId": "your-apple-id@example.com",        // ← あなたのApple ID
-        "ascAppId": "1234567890",                      // ← App Store Connect App ID
-        "appleTeamId": "ABCD123456"                    // ← Apple Team ID
-      }
-    }
-  }
-}
-```
-
-**情報の取得方法：**
-- **Apple ID**: App Store Connect にログインするメールアドレス
-- **ascAppId**: App Store Connect → アプリ → App Information → Apple ID
-- **appleTeamId**: App Store Connect → Users and Access → Team ID
-
----
 
 ## 🏗️ ビルド手順
 

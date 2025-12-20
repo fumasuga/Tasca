@@ -211,10 +211,6 @@ npm run eas:submit:ios
 ### 必要な設定
 
 1. **app.json**: `npx eas init` 実行後、`projectId` と `owner` が自動設定されます
-2. **eas.json**: `submit.production.ios` セクションに以下を設定：
-   - `appleId`: App Store Connect のメールアドレス
-   - `ascAppId`: App Store Connect の App ID
-   - `appleTeamId`: Apple Developer Team ID
 
 ## ライセンス
 
