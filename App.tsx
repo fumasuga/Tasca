@@ -138,7 +138,7 @@ function AppContent() {
               <Text style={styles.headerLogoText}>✓</Text>
             </LinearGradient>
             <View>
-              <Text style={[styles.headerTitle, { color: colors.text.primary }]}>Tasca</Text>
+              <Text style={[styles.headerTitle, { color: colors.text.primary }]}>Taskly</Text>
               <Text style={[styles.headerEmail, { color: colors.text.muted }]} numberOfLines={1}>
                 {session.user?.email}
               </Text>

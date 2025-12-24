@@ -242,7 +242,7 @@ export const AuthScreen: React.FC = () => {
             <Text style={styles.logoIcon}>✓</Text>
           </LinearGradient>
           <View style={styles.headerTextContainer}>
-            <Text style={styles.appName}>Tasca</Text>
+            <Text style={styles.appName}>Taskly</Text>
             <Text style={styles.tagline}>{t('welcomeBack')}</Text>
           </View>
         </View>

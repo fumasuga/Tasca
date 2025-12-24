@@ -1,10 +1,10 @@
-# ✓ Tasca
+# ✓ Taskly
 
 **シンプルで美しいタスク管理アプリ**
 
 Expo (React Native) + TypeScript + Supabase を使用したモダンなタスク管理アプリケーション
 
-> **Tasca** = Task + α（付加価値のあるタスク管理）
+> **Taskly** - シンプルにタスクを管理し、成果を記録する
 
 ![Platform](https://img.shields.io/badge/platform-iOS%20%7C%20Android-blue)
 ![Expo SDK](https://img.shields.io/badge/Expo%20SDK-54-blueviolet)
