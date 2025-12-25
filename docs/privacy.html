@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>プライバシーポリシー - Tasca</title>
+    <title>Privacy Policy - Tasca</title>
     <style>
         * {
             margin: 0;
@@ -14,80 +14,72 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
             line-height: 1.8;
-            color: #1a1a1a;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-        }
-        
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
+            color: #333;
+            background: #ffffff;
             padding: 40px 20px;
         }
         
-        header {
-            text-align: center;
-            color: white;
-            margin-bottom: 40px;
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
         }
         
-        header h1 {
-            font-size: 2.5rem;
+        h1 {
+            font-size: 2rem;
             margin-bottom: 10px;
-            font-weight: 700;
+            color: #333;
         }
         
-        .card {
-            background: white;
-            border-radius: 16px;
-            padding: 50px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        .subtitle {
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 1rem;
         }
         
-        .card h2 {
-            color: #667eea;
+        h2 {
+            font-size: 1.4rem;
             margin-top: 40px;
-            margin-bottom: 20px;
-            font-size: 1.6rem;
-            border-bottom: 2px solid #667eea;
-            padding-bottom: 10px;
+            margin-bottom: 15px;
+            color: #333;
         }
         
-        .card h2:first-child {
+        h2:first-of-type {
             margin-top: 0;
         }
         
-        .card p {
+        p {
             margin-bottom: 15px;
             color: #555;
         }
         
-        .card ul, .card ol {
+        ul, ol {
             margin-left: 30px;
             margin-bottom: 15px;
             color: #555;
         }
         
-        .card li {
+        li {
             margin-bottom: 10px;
+        }
+        
+        a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
         }
         
         .back-link {
             display: inline-block;
-            color: white;
+            margin-top: 40px;
+            color: #667eea;
             text-decoration: none;
-            padding: 12px 24px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 8px;
-            transition: all 0.3s;
-            backdrop-filter: blur(10px);
-            margin-top: 30px;
         }
         
         .back-link:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px);
+            text-decoration: underline;
         }
         
         .last-updated {
@@ -98,102 +90,97 @@
         }
         
         @media (max-width: 600px) {
-            .card {
-                padding: 30px 20px;
+            body {
+                padding: 20px 15px;
             }
             
-            header h1 {
-                font-size: 1.8rem;
+            h1 {
+                font-size: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>プライバシーポリシー</h1>
-            <p>Tasca プライバシーポリシー</p>
-        </header>
+        <h1>Privacy Policy</h1>
+        <p class="subtitle">Tasca Privacy Policy</p>
         
-        <div class="card">
-            <h2>1. はじめに</h2>
-            <p>Tasca（以下「本アプリ」といいます）は、ユーザーの個人情報の保護を重要視しています。本プライバシーポリシーは、本アプリがどのような個人情報を収集し、どのように使用・保護するかを説明するものです。</p>
-            
-            <h2>2. 収集する情報</h2>
-            <p>本アプリは、以下の情報を収集します：</p>
-            <ul>
-                <li><strong>アカウント情報</strong>：メールアドレス、パスワード（暗号化して保存）</li>
-                <li><strong>タスク情報</strong>：作成したタスク、完了したタスク、タスクの内容、アウトプット、URLリンク</li>
-                <li><strong>使用状況情報</strong>：アプリの使用状況、エラー情報</li>
-                <li><strong>デバイス情報</strong>：デバイスの種類、OSバージョン、一意のデバイス識別子</li>
-            </ul>
-            
-            <h2>3. 情報の利用目的</h2>
-            <p>収集した情報は、以下の目的で利用します：</p>
-            <ul>
-                <li>本アプリの提供、維持、改善</li>
-                <li>ユーザーアカウントの管理と認証</li>
-                <li>タスクデータの保存と同期</li>
-                <li>お問い合わせへの対応</li>
-                <li>セキュリティの確保と不正利用の防止</li>
-                <li>サービスの改善のための分析</li>
-            </ul>
-            
-            <h2>4. 情報の保存とセキュリティ</h2>
-            <ol>
-                <li>本アプリは、Supabase（PostgreSQLデータベース）を使用してデータを保存します。</li>
-                <li>すべてのデータはRow Level Security (RLS)により保護され、ユーザーは自分のデータのみアクセスできます。</li>
-                <li>パスワードは暗号化（ハッシュ化）して保存され、平文で保存されることはありません。</li>
-                <li>データベースへの通信はHTTPS（SSL/TLS）で暗号化されています。</li>
-            </ol>
-            
-            <h2>5. 第三者への情報提供</h2>
-            <p>当社は、以下の場合を除き、ユーザーの個人情報を第三者に提供することはありません：</p>
-            <ul>
-                <li>ユーザーの同意がある場合</li>
-                <li>法令に基づく場合</li>
-                <li>人の生命、身体または財産の保護のために必要がある場合</li>
-                <li>公衆衛生の向上または児童の健全な育成の推進のために特に必要がある場合</li>
-            </ul>
-            
-            <h2>6. データの保存期間</h2>
-            <p>ユーザーのデータは、アカウントが削除されるまで保存されます。アカウント削除時には、関連するすべてのデータが削除されます。</p>
-            
-            <h2>7. ユーザーの権利</h2>
-            <p>ユーザーは、以下の権利を有します：</p>
-            <ul>
-                <li>自己の個人情報へのアクセス権</li>
-                <li>自己の個人情報の訂正・削除を求める権利</li>
-                <li>アカウントの削除を求める権利</li>
-                <li>データのエクスポートを求める権利</li>
-            </ul>
-            <p>これらの権利を行使する場合は、お問い合わせフォームよりご連絡ください。</p>
-            
-            <h2>8. クッキー（Cookie）</h2>
-            <p>本アプリは、認証状態を維持するためにセッション情報を使用しますが、追跡目的のクッキーは使用しません。</p>
-            
-            <h2>9. 外部サービス</h2>
-            <p>本アプリは、以下の外部サービスを使用しています：</p>
-            <ul>
-                <li><strong>Supabase</strong>：データベースと認証サービスの提供（プライバシーポリシー：<a href="https://supabase.com/privacy" target="_blank">https://supabase.com/privacy</a>）</li>
-            </ul>
-            
-            <h2>10. お子様の個人情報</h2>
-            <p>本アプリは、13歳未満の子供を対象としていません。13歳未満の子供の個人情報を意図的に収集することはありません。</p>
-            
-            <h2>11. プライバシーポリシーの変更</h2>
-            <p>当社は、必要に応じて本プライバシーポリシーを変更することがあります。変更があった場合は、本ページに掲載し、重要な変更についてはユーザーに通知します。</p>
-            
-            <h2>12. お問い合わせ</h2>
-            <p>プライバシーポリシーに関するご質問やご意見がございましたら、お問い合わせフォームよりご連絡ください。</p>
-            
-            <div class="last-updated">
-                <p>最終更新日: 2025年1月1日</p>
-            </div>
-            
-            <a href="index.html" class="back-link">← トップページに戻る</a>
+        <h2>1. Introduction</h2>
+        <p>Tasca (the "App") values the protection of users' personal information. This Privacy Policy explains what personal information we collect and how we use and protect it.</p>
+        
+        <h2>2. Information We Collect</h2>
+        <p>We collect the following information:</p>
+        <ul>
+            <li><strong>Account Information</strong>: Email address, password (stored encrypted)</li>
+            <li><strong>Task Information</strong>: Created tasks, completed tasks, task content, outputs, URL links</li>
+            <li><strong>Usage Information</strong>: App usage, error information</li>
+            <li><strong>Device Information</strong>: Device type, OS version, unique device identifier</li>
+        </ul>
+        
+        <h2>3. Purpose of Use</h2>
+        <p>We use the collected information for the following purposes:</p>
+        <ul>
+            <li>Providing, maintaining, and improving the App</li>
+            <li>Managing and authenticating user accounts</li>
+            <li>Storing and syncing task data</li>
+            <li>Responding to inquiries</li>
+            <li>Ensuring security and preventing unauthorized use</li>
+            <li>Analyzing for service improvement</li>
+        </ul>
+        
+        <h2>4. Data Storage and Security</h2>
+        <ol>
+            <li>We store data using Supabase (PostgreSQL database).</li>
+            <li>All data is protected by Row Level Security (RLS), and users can only access their own data.</li>
+            <li>Passwords are stored encrypted (hashed) and are never stored in plain text.</li>
+            <li>All communication with the database is encrypted using HTTPS (SSL/TLS).</li>
+        </ol>
+        
+        <h2>5. Disclosure to Third Parties</h2>
+        <p>We do not provide users' personal information to third parties except in the following cases:</p>
+        <ul>
+            <li>When the user has consented</li>
+            <li>When required by law</li>
+            <li>When necessary to protect human life, body, or property</li>
+            <li>When particularly necessary for public health or the sound development of children</li>
+        </ul>
+        
+        <h2>6. Data Retention</h2>
+        <p>User data is retained until the account is deleted. When an account is deleted, all related data is also deleted.</p>
+        
+        <h2>7. User Rights</h2>
+        <p>Users have the following rights:</p>
+        <ul>
+            <li>Right to access their personal information</li>
+            <li>Right to request correction or deletion of their personal information</li>
+            <li>Right to request account deletion</li>
+            <li>Right to request data export</li>
+        </ul>
+        <p>To exercise these rights, please contact us through the contact form.</p>
+        
+        <h2>8. Cookies</h2>
+        <p>The App uses session information to maintain authentication status but does not use cookies for tracking purposes.</p>
+        
+        <h2>9. Third-Party Services</h2>
+        <p>The App uses the following third-party services:</p>
+        <ul>
+            <li><strong>Supabase</strong>: Database and authentication services (Privacy Policy: <a href="https://supabase.com/privacy" target="_blank">https://supabase.com/privacy</a>)</li>
+        </ul>
+        
+        <h2>10. Children's Privacy</h2>
+        <p>The App is not intended for children under 13 years of age. We do not knowingly collect personal information from children under 13.</p>
+        
+        <h2>11. Changes to Privacy Policy</h2>
+        <p>We may change this Privacy Policy as necessary. When changes are made, we will post them on this page and notify users of significant changes.</p>
+        
+        <h2>12. Contact</h2>
+        <p>If you have any questions or comments about this Privacy Policy, please contact us through the contact form.</p>
+        
+        <div class="last-updated">
+            <p>Last updated: January 1, 2025</p>
         </div>
+        
+        <a href="index.html" class="back-link">← Back to Home</a>
     </div>
 </body>
 </html>
-
