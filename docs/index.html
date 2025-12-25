@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasca - シンプルで美しいタスク管理アプリ</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+        }
+        
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        .card p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            transition: all 0.3s;
+            backdrop-filter: blur(10px);
+        }
+        
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .contact-form {
+            margin-top: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn:active {
+            transform: translateY(0);
+        }
+        
+        footer {
+            text-align: center;
+            color: white;
+            margin-top: 50px;
+            opacity: 0.8;
+        }
+        
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .card {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>✓ Tasca</h1>
+            <p>シンプルで美しいタスク管理アプリ</p>
+        </header>
+        
+        <div class="card">
+            <h2>アプリについて</h2>
+            <p>Tascaは、シンプルで美しいタスク管理アプリです。毎日のタスクを効率的に管理し、成果を記録することで、あなたの生産性を向上させます。</p>
+            <p>GitHubスタイルのコントリビューショングラフで達成感を可視化し、各タスクにメモやリンクを追加して、学びと成果を記録できます。</p>
+        </div>
+        
+        <div class="card">
+            <h2>主な機能</h2>
+            <ul style="margin-left: 30px; color: #555;">
+                <li><strong>シンプルなタスク管理</strong> - タスクの追加、完了、削除が直感的に操作できます</li>
+                <li><strong>GitHubスタイルのコントリビューショングラフ</strong> - 1年間の完了履歴を視覚的に表示し、モチベーション向上につながります</li>
+                <li><strong>アウトプット機能</strong> - 各タスクにメモや振り返りを記録し、学びと成果を蓄積できます</li>
+                <li><strong>URLリンク機能</strong> - タスクに関連するURLを保存し、参考資料を簡単に管理できます</li>
+                <li><strong>完了履歴の管理</strong> - 過去に完了したタスクを日付ごとに整理して表示します</li>
+                <li><strong>多言語対応</strong> - 英語、日本語、フランス語、韓国語に対応しています</li>
+                <li><strong>美しいUIデザイン</strong> - モダンなデザインとスムーズなアニメーションで、使い心地が抜群です</li>
+                <li><strong>ダークモード対応</strong> - 目に優しいダークモードで、夜間も快適に使用できます</li>
+                <li><strong>セキュアな認証</strong> - Supabaseによる安全な認証システムで、データは安全に保護されます</li>
+            </ul>
+        </div>
+        
+        <div class="card">
+            <h2>よくある質問（FAQ）</h2>
+            
+            <div style="margin-bottom: 30px;">
+                <h3 style="color: #667eea; margin-bottom: 10px; font-size: 1.2rem;">Q. アプリは無料で使用できますか？</h3>
+                <p style="color: #555;">A. はい、Tascaは完全に無料で使用できます。追加の課金やサブスクリプションはありません。</p>
+            </div>
+            
+            <div style="margin-bottom: 30px;">
+                <h3 style="color: #667eea; margin-bottom: 10px; font-size: 1.2rem;">Q. データはどこに保存されますか？</h3>
+                <p style="color: #555;">A. すべてのデータはSupabase（PostgreSQLデータベース）に安全に保存されます。Row Level Security (RLS)により、ユーザーは自分のデータのみアクセスできます。</p>
+            </div>
+            
+            <div style="margin-bottom: 30px;">
+                <h3 style="color: #667eea; margin-bottom: 10px; font-size: 1.2rem;">Q. オフラインで使用できますか？</h3>
+                <p style="color: #555;">A. 現在のバージョンでは、インターネット接続が必要です。将来的にオフライン機能の追加を検討しています。</p>
+            </div>
+            
+            <div style="margin-bottom: 30px;">
+                <h3 style="color: #667eea; margin-bottom: 10px; font-size: 1.2rem;">Q. データをエクスポートできますか？</h3>
+                <p style="color: #555;">A. 現在のバージョンでは、データのエクスポート機能は実装されていませんが、将来的に追加を検討しています。</p>
+            </div>
+            
+            <div style="margin-bottom: 30px;">
+                <h3 style="color: #667eea; margin-bottom: 10px; font-size: 1.2rem;">Q. アカウントを削除するにはどうすればよいですか？</h3>
+                <p style="color: #555;">A. アカウントの削除機能は現在実装中です。削除をご希望の場合は、お問い合わせください。</p>
+            </div>
+            
+            <div style="margin-bottom: 30px;">
+                <h3 style="color: #667eea; margin-bottom: 10px; font-size: 1.2rem;">Q. 複数のデバイスで同期できますか？</h3>
+                <p style="color: #555;">A. はい、同じアカウントでログインすれば、複数のデバイス間でデータが自動的に同期されます。</p>
+            </div>
+            
+            <div style="margin-bottom: 30px;">
+                <h3 style="color: #667eea; margin-bottom: 10px; font-size: 1.2rem;">Q. 不具合を報告するにはどうすればよいですか？</h3>
+                <p style="color: #555;">A. 不具合やご意見がございましたら、GitHubのIssuesページまたはApp Storeのレビュー欄からご報告ください。</p>
+            </div>
+        </div>
+        
+        <div class="nav-links">
+            <a href="terms.html">利用規約</a>
+            <a href="privacy.html">プライバシーポリシー</a>
+        </div>
+        
+        <footer>
+            <p>&copy; 2025 Tasca. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
+
