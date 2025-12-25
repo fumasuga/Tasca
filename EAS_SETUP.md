@@ -81,7 +81,7 @@ npx eas build --platform ios --profile production
 
 ### 0. App Store Connect で新規アプリを作成（初回のみ）
 
-**重要**: 新しいアプリ名「Taskly」で新規アプリとして登録する必要があります。
+**重要**: 新しいアプリ名「Tasca」で新規アプリとして登録する必要があります。
 
 1. **App Store Connect にログイン**
    - https://appstoreconnect.apple.com にアクセス
@@ -91,23 +91,23 @@ npx eas build --platform ios --profile production
    - 「マイApp」→「+」→「新しいApp」をクリック
    - 以下の情報を入力：
      - **プラットフォーム**: iOS
-     - **名前**: Taskly
+     - **名前**: Tasca
      - **プライマリ言語**: 日本語（または英語）
-     - **Bundle ID**: `com.fumasuga.taskly.app`（既存のBundle IDを選択、または新規作成）
-     - **SKU**: `taskly-001`（任意の識別子）
+     - **Bundle ID**: `com.fumasuga.tasca.app`（既存のBundle IDを選択、または新規作成）
+     - **SKU**: `tasca-001`（任意の識別子）
    - 「作成」をクリック
 
 3. **Bundle ID の新規作成（必要な場合）**
    - Apple Developer Portal → Certificates, Identifiers & Profiles → Identifiers
    - 「+」をクリックして新しいApp IDを作成
-   - **Description**: Taskly
-   - **Bundle ID**: `com.fumasuga.taskly.app`
+   - **Description**: Tasca
+   - **Bundle ID**: `com.fumasuga.tasca.app`
    - **Capabilities**: 必要に応じて設定（Push Notifications等）
 
 ### 1. App Store Connect での準備
 
 1. **アプリ情報の入力**
-   - アプリ名: Taskly
+   - アプリ名: Tasca
    - 説明文（日本語・英語）
    - カテゴリ: Productivity
    - キーワード
@@ -152,7 +152,7 @@ npx eas build:view [BUILD_ID]
 
 ### ビルドログの確認
 
-EAS Dashboard: https://expo.dev/accounts/[your-username]/projects/taskly/builds
+EAS Dashboard: https://expo.dev/accounts/[your-username]/projects/tasca/builds
 
 ---
 

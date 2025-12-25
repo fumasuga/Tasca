@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Taskly",
-    "slug": "taskly",
+    "name": "Tasca",
+    "slug": "tasca",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -14,7 +14,7 @@
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.fumasuga.taskly.app",
+      "bundleIdentifier": "com.fumasuga.tasca.app",
       "buildNumber": "1",
       "infoPlist": {
         "NSAppTransportSecurity": {
@@ -32,7 +32,7 @@
         "backgroundColor": "#0D0D12"
       },
       "edgeToEdgeEnabled": true,
-      "package": "com.fumasuga.taskly.app",
+      "package": "com.fumasuga.tasca.app",
       "versionCode": 1
     },
     "web": {
@@ -46,12 +46,12 @@
     "assetBundlePatterns": [
       "**/*"
     ],
-    "scheme": "taskly",
-    "owner": "fumasuga",
+    "scheme": "tasca",
     "extra": {
       "eas": {
-        "projectId": "1121f368-c4f4-4a75-8ce0-64753828233a"
+        "projectId": "d8db2d57-c8ff-4641-91a0-151a633441a4"
       }
-    }
+    },
+    "owner": "fumasuga"
   }
 }

@@ -17,7 +17,7 @@ export const languageLocales: Record<Language, string> = {
 export const translations: Record<Language, Record<string, string>> = {
   en: {
     // App
-    appName: 'Taskly',
+    appName: 'Tasca',
     loading: 'Loading...',
     
     // Auth
@@ -113,7 +113,7 @@ export const translations: Record<Language, Record<string, string>> = {
   
   ja: {
     // App
-    appName: 'Taskly',
+    appName: 'Tasca',
     loading: '読み込み中...',
     
     // Auth
@@ -209,7 +209,7 @@ export const translations: Record<Language, Record<string, string>> = {
   
   fr: {
     // App
-    appName: 'Taskly',
+    appName: 'Tasca',
     loading: 'Chargement...',
     
     // Auth
@@ -305,7 +305,7 @@ export const translations: Record<Language, Record<string, string>> = {
   
   ko: {
     // App
-    appName: 'Taskly',
+    appName: 'Tasca',
     loading: '로딩 중...',
     
     // Auth
