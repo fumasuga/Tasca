@@ -187,7 +187,8 @@ export const AuthScreen: React.FC = () => {
           <View style={styles.bgOrb1} />
           <View style={styles.bgOrb2} />
         </View>
-        <View style={styles.successCard}>
+        <View style={styles.successContainer}>
+          <View style={styles.successCard}>
           <LinearGradient
             colors={[colors.success.primary, '#059669']}
             style={styles.successIconGradient}
@@ -196,16 +197,16 @@ export const AuthScreen: React.FC = () => {
           >
             <Text style={styles.successIcon}>✓</Text>
           </LinearGradient>
-          <Text style={styles.successTitle}>Account Created!</Text>
+          <Text style={styles.successTitle}>{t('accountCreated')}</Text>
           <Text style={styles.successMessage}>
-            We've sent a confirmation email to
+            {t('confirmEmailSent')}
           </Text>
           <View style={styles.emailBadge}>
             <Text style={styles.emailBadgeText}>{successEmail}</Text>
           </View>
           <View style={styles.infoCard}>
             <Text style={styles.infoText}>
-              Please check your inbox and verify your email before signing in.
+              {t('checkInbox')}
             </Text>
           </View>
           <TouchableOpacity style={styles.successButton} onPress={closeSuccess} activeOpacity={0.8}>
@@ -218,6 +219,7 @@ export const AuthScreen: React.FC = () => {
               <Text style={styles.buttonText}>{t('continueToSignIn')}</Text>
             </LinearGradient>
           </TouchableOpacity>
+          </View>
         </View>
       </View>
     );
@@ -677,13 +679,20 @@ const styles = StyleSheet.create({
   },
 
   // Success
+  successContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: spacing.xl,
+  },
   successCard: {
     backgroundColor: colors.bg.card,
     borderRadius: borderRadius['2xl'],
     borderWidth: 1,
     borderColor: colors.glass.border,
     padding: spacing['3xl'],
-    marginHorizontal: spacing.xl,
+    width: '100%',
+    maxWidth: 400,
     alignItems: 'center',
     ...shadows.lg,
   },
