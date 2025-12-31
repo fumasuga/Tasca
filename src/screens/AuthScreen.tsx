@@ -100,8 +100,8 @@ export const AuthScreen: React.FC = () => {
       if (error) throw error;
       if (data.session) setSession(data.session);
     } catch (error: any) {
-      const message = error?.message ?? 'Invalid email or password';
-      Alert.alert('Login Failed', message + '\n\nPlease check your email and password.');
+      const errorMessage = error?.message ?? t('invalidEmailOrPassword');
+      Alert.alert(t('loginFailed'), errorMessage + '\n\n' + t('checkEmailAndPassword'));
     } finally {
       setLoading(false);
     }
@@ -138,12 +138,12 @@ export const AuthScreen: React.FC = () => {
         setShowSuccess(true);
       }
     } catch (error: any) {
-      const message = error?.message ?? 'Failed to create account';
+      const errorMessage = error?.message ?? t('failedToCreateAccount');
       let hint = '';
-      if (message.toLowerCase().includes('invalid') && message.toLowerCase().includes('email')) {
-        hint = '\n\nPlease use a real email address. Test domains like @example.com are not allowed.';
+      if (errorMessage.toLowerCase().includes('invalid') && errorMessage.toLowerCase().includes('email')) {
+        hint = '\n\n' + t('useRealEmailAddress');
       }
-      Alert.alert('Signup Failed', message + hint);
+      Alert.alert(t('signupFailed'), errorMessage + hint);
     } finally {
       setSignUpLoading(false);
     }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -6,6 +6,8 @@ import {
   TouchableOpacity,
   Switch,
   ScrollView,
+  Alert,
+  ActivityIndicator,
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useThemeStore } from '../store/themeStore';
@@ -22,14 +24,51 @@ const languages: Language[] = ['en', 'ja', 'fr', 'ko'];
 
 export const SettingsScreen: React.FC<SettingsScreenProps> = ({ onClose }) => {
   const { mode, toggle } = useThemeStore();
-  const { session, signOut } = useAuthStore();
+  const { session, signOut, deleteUser } = useAuthStore();
   const { language, setLanguage, t } = useLanguageStore();
   const colors = getColors(mode);
   const shadows = getShadows(mode);
+  const [isDeleting, setIsDeleting] = useState(false);
 
   const handleSignOut = () => {
     signOut();
     onClose();
+  };
+
+  const handleDeleteAccount = () => {
+    Alert.alert(
+      t('deleteAccount'),
+      `${t('deleteAccountConfirm')}\n\n${t('deleteAccountWarning')}`,
+      [
+        {
+          text: t('cancel'),
+          style: 'cancel',
+        },
+        {
+          text: t('deleteAccount'),
+          style: 'destructive',
+          onPress: async () => {
+            setIsDeleting(true);
+            try {
+              await deleteUser(t);
+              Alert.alert(t('deleteAccountSuccess'), '', [
+                {
+                  text: 'OK',
+                  onPress: () => {
+                    onClose();
+                  },
+                },
+              ]);
+            } catch (error) {
+              // エラーは既にdeleteUser内でAlert表示されている
+            } finally {
+              setIsDeleting(false);
+            }
+          },
+        },
+      ],
+      { cancelable: true }
+    );
   };
 
   return (
@@ -142,6 +181,25 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({ onClose }) => {
             activeOpacity={0.8}
           >
             <Text style={[styles.signOutText, { color: colors.error.primary }]}>{t('signOut')}</Text>
+          </TouchableOpacity>
+        </View>
+        {/* Delete Account */}
+        <View style={styles.section}>
+          <TouchableOpacity
+            style={[
+              styles.deleteButton,
+              { backgroundColor: colors.error.subtle, borderColor: colors.error.primary },
+              isDeleting && styles.deleteButtonDisabled,
+            ]}
+            onPress={handleDeleteAccount}
+            activeOpacity={0.8}
+            disabled={isDeleting}
+          >
+            {isDeleting ? (
+              <ActivityIndicator size="small" color={colors.error.primary} />
+            ) : (
+              <Text style={[styles.deleteText, { color: colors.error.primary }]}>{t('deleteAccount')}</Text>
+            )}
           </TouchableOpacity>
         </View>
         {/* Version */}
@@ -293,6 +351,19 @@ const styles = StyleSheet.create({
     borderWidth: 1,
   },
   signOutText: {
+    fontSize: fontSize.base,
+    fontWeight: '600',
+  },
+  deleteButton: {
+    padding: spacing.lg,
+    borderRadius: borderRadius.lg,
+    alignItems: 'center',
+    borderWidth: 1,
+  },
+  deleteButtonDisabled: {
+    opacity: 0.5,
+  },
+  deleteText: {
     fontSize: fontSize.base,
     fontWeight: '600',
   },
