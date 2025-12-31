@@ -122,6 +122,9 @@ export const translations: Record<Language, Record<string, string>> = {
     failedToSaveUrl: 'Failed to save URL',
     failedToSignOut: 'Failed to sign out',
     loginRequired: 'Login required',
+    invalidTodoInput: 'Invalid task input',
+    invalidOutputInput: 'Invalid output input',
+    invalidUrlInput: 'Invalid URL input',
   },
   
   ja: {
@@ -231,6 +234,9 @@ export const translations: Record<Language, Record<string, string>> = {
     failedToSaveUrl: 'URLの保存に失敗しました',
     failedToSignOut: 'ログアウトに失敗しました',
     loginRequired: 'ログインが必要です',
+    invalidTodoInput: 'タスクの入力が不正です',
+    invalidOutputInput: 'アウトプットの入力が不正です',
+    invalidUrlInput: 'URLの入力が不正です',
   },
   
   fr: {
@@ -340,6 +346,9 @@ export const translations: Record<Language, Record<string, string>> = {
     failedToSaveUrl: "Échec de l'enregistrement de l'URL",
     failedToSignOut: 'Échec de la déconnexion',
     loginRequired: 'Connexion requise',
+    invalidTodoInput: 'Saisie de tâche invalide',
+    invalidOutputInput: 'Saisie de notes invalide',
+    invalidUrlInput: 'Saisie d\'URL invalide',
   },
   
   ko: {
@@ -449,6 +458,9 @@ export const translations: Record<Language, Record<string, string>> = {
     failedToSaveUrl: 'URL을 저장하지 못했습니다',
     failedToSignOut: '로그아웃에 실패했습니다',
     loginRequired: '로그인이 필요합니다',
+    invalidTodoInput: '작업 입력이 올바르지 않습니다',
+    invalidOutputInput: '메모 입력이 올바르지 않습니다',
+    invalidUrlInput: 'URL 입력이 올바르지 않습니다',
   },
 };
 

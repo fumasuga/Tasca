@@ -3,23 +3,24 @@ import { Alert } from 'react-native';
 import { getSupabase, isSupabaseConfigured } from '../lib/supabase';
 import { Todo } from '../types/todo';
 import { validateTodoTitle, validateUrl, validateOutput } from '../utils/validation';
+import { useLanguageStore } from './languageStore';
 
 interface TodoState {
   todos: Todo[];
   loading: boolean;
-  fetchTodos: () => Promise<void>;
-  addTodo: (title: string) => Promise<void>;
-  toggleTodo: (id: string, isCompleted: boolean) => Promise<void>;
-  deleteTodo: (id: string) => Promise<void>;
-  updateOutput: (id: string, output: string) => Promise<void>;
-  updateUrl: (id: string, url: string) => Promise<void>;
+  fetchTodos: (t: (key: string) => string) => Promise<void>;
+  addTodo: (title: string, t: (key: string) => string) => Promise<void>;
+  toggleTodo: (id: string, isCompleted: boolean, t: (key: string) => string) => Promise<void>;
+  deleteTodo: (id: string, t: (key: string) => string) => Promise<void>;
+  updateOutput: (id: string, output: string, t: (key: string) => string) => Promise<void>;
+  updateUrl: (id: string, url: string, t: (key: string) => string) => Promise<void>;
 }
 
 export const useTodoStore = create<TodoState>((set, get) => ({
   todos: [],
   loading: false,
 
-  fetchTodos: async () => {
+  fetchTodos: async (t: (key: string) => string) => {
     if (!isSupabaseConfigured()) return;
     set({ loading: true });
     try {
@@ -32,26 +33,26 @@ export const useTodoStore = create<TodoState>((set, get) => ({
       set({ todos: data ?? [] });
     } catch (error) {
       console.error('Error fetching todos:', error);
-      Alert.alert('エラー', 'Todoの取得に失敗しました');
+      Alert.alert(t('error'), t('failedToFetchTodos'));
     } finally {
       set({ loading: false });
     }
   },
 
-  addTodo: async (title: string) => {
+  addTodo: async (title: string, t: (key: string) => string) => {
     if (!isSupabaseConfigured()) return;
     
     // バリデーション
     const validation = validateTodoTitle(title);
     if (!validation.isValid) {
-      Alert.alert('入力エラー', validation.error || 'タスクの入力が不正です');
+      Alert.alert(t('inputError'), validation.error || t('invalidTodoInput'));
       return;
     }
     
     try {
       const { data: { user } } = await getSupabase().auth.getUser();
       if (!user) {
-        Alert.alert('エラー', 'ログインが必要です');
+        Alert.alert(t('error'), t('loginRequired'));
         return;
       }
 
@@ -65,11 +66,11 @@ export const useTodoStore = create<TodoState>((set, get) => ({
       set((state) => ({ todos: [data, ...state.todos] }));
     } catch (error) {
       console.error('Error adding todo:', error);
-      Alert.alert('エラー', 'Todoの追加に失敗しました');
+      Alert.alert(t('error'), t('failedToAddTodo'));
     }
   },
 
-  toggleTodo: async (id: string, isCompleted: boolean) => {
+  toggleTodo: async (id: string, isCompleted: boolean, t: (key: string) => string) => {
     if (!isSupabaseConfigured()) return;
     const newCompleted = !isCompleted;
     const completedAt = newCompleted ? new Date().toISOString() : null;
@@ -96,11 +97,11 @@ export const useTodoStore = create<TodoState>((set, get) => ({
           t.id === id ? { ...t, is_completed: isCompleted, completed_at: null } : t
         ),
       }));
-      Alert.alert('エラー', 'Todoの更新に失敗しました');
+      Alert.alert(t('error'), t('failedToUpdateTodo'));
     }
   },
 
-  deleteTodo: async (id: string) => {
+  deleteTodo: async (id: string, t: (key: string) => string) => {
     if (!isSupabaseConfigured()) return;
     const prevTodos = get().todos;
 
@@ -113,17 +114,17 @@ export const useTodoStore = create<TodoState>((set, get) => ({
     } catch (error) {
       console.error('Error deleting todo:', error);
       set({ todos: prevTodos });
-      Alert.alert('エラー', 'Todoの削除に失敗しました');
+      Alert.alert(t('error'), t('failedToDeleteTodo'));
     }
   },
 
-  updateOutput: async (id: string, output: string) => {
+  updateOutput: async (id: string, output: string, t: (key: string) => string) => {
     if (!isSupabaseConfigured()) return;
     
     // バリデーション
     const validation = validateOutput(output);
     if (!validation.isValid) {
-      Alert.alert('入力エラー', validation.error || 'アウトプットの入力が不正です');
+      Alert.alert(t('inputError'), validation.error || t('invalidOutputInput'));
       return;
     }
     
@@ -146,17 +147,17 @@ export const useTodoStore = create<TodoState>((set, get) => ({
     } catch (error) {
       console.error('Error updating output:', error);
       set({ todos: prevTodos });
-      Alert.alert('エラー', 'アウトプットの保存に失敗しました');
+      Alert.alert(t('error'), t('failedToSaveOutput'));
     }
   },
 
-  updateUrl: async (id: string, url: string) => {
+  updateUrl: async (id: string, url: string, t: (key: string) => string) => {
     if (!isSupabaseConfigured()) return;
     
     // バリデーション
     const validation = validateUrl(url);
     if (!validation.isValid) {
-      Alert.alert('入力エラー', validation.error || 'URLの入力が不正です');
+      Alert.alert(t('inputError'), validation.error || t('invalidUrlInput'));
       return;
     }
     
@@ -180,7 +181,7 @@ export const useTodoStore = create<TodoState>((set, get) => ({
     } catch (error) {
       console.error('Error updating URL:', error);
       set({ todos: prevTodos });
-      Alert.alert('エラー', 'URLの保存に失敗しました');
+      Alert.alert(t('error'), t('failedToSaveUrl'));
     }
   },
 }));

@@ -71,7 +71,7 @@ function AppContent() {
 
   const onRefresh = async () => {
     setRefreshing(true);
-    await fetchTodos();
+    await fetchTodos(t);
     setRefreshing(false);
   };
 

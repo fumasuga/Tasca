@@ -37,10 +37,19 @@ npm install
 
 プロジェクトルートに `.env` ファイルを作成：
 
+```bash
+# .env.exampleをコピーして.envを作成
+cp .env.example .env
+```
+
+`.env` ファイルに実際の値を設定：
+
 ```env
 EXPO_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
 EXPO_PUBLIC_SUPABASE_ANON_KEY=your-anon-key-here
 ```
+
+**注意**: `.env` ファイルは既に `.gitignore` に含まれているため、Gitにコミットされません。
 
 ### 4. Supabaseデータベースのセットアップ
 

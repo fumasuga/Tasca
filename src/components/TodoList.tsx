@@ -24,10 +24,10 @@ import { getColors, spacing, borderRadius, fontSize, ThemeMode } from '../theme/
 interface TodoItemProps {
   item: Todo;
   index: number;
-  onToggle: (id: string, isCompleted: boolean) => void;
-  onDelete: (id: string) => void;
-  onUpdateOutput: (id: string, output: string) => void;
-  onUpdateUrl: (id: string, url: string) => void;
+  onToggle: (id: string, isCompleted: boolean, t: (key: string) => string) => void;
+  onDelete: (id: string, t: (key: string) => string) => void;
+  onUpdateOutput: (id: string, output: string, t: (key: string) => string) => void;
+  onUpdateUrl: (id: string, url: string, t: (key: string) => string) => void;
   colors: ReturnType<typeof getColors>;
   t: (key: string) => string;
 }
@@ -106,7 +106,7 @@ const TodoItem: React.FC<TodoItemProps> = ({
       return;
     }
     setIsSaving(true);
-    await onUpdateOutput(item.id, modalOutputText);
+    await onUpdateOutput(item.id, modalOutputText, t);
     setIsSaving(false);
     setOutputText(modalOutputText);
     setShowOutputModal(false);
@@ -119,7 +119,7 @@ const TodoItem: React.FC<TodoItemProps> = ({
       return;
     }
     setIsSavingUrl(true);
-    await onUpdateUrl(item.id, modalUrlText);
+    await onUpdateUrl(item.id, modalUrlText, t);
     setIsSavingUrl(false);
     setUrlText(modalUrlText);
     setShowUrlModal(false);
@@ -139,7 +139,7 @@ const TodoItem: React.FC<TodoItemProps> = ({
       <View style={styles.item}>
         <TouchableOpacity
           style={styles.checkboxContainer}
-          onPress={() => onToggle(item.id, item.is_completed)}
+          onPress={() => onToggle(item.id, item.is_completed, t)}
         >
           {item.is_completed ? (
             <LinearGradient
@@ -189,7 +189,7 @@ const TodoItem: React.FC<TodoItemProps> = ({
           </TouchableOpacity>
           <TouchableOpacity
             style={[styles.deleteButton, { backgroundColor: colors.error.subtle }]}
-            onPress={() => onDelete(item.id)}
+            onPress={() => onDelete(item.id, t)}
             hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
           >
             <Text style={[styles.deleteIcon, { color: colors.error.primary }]}>×</Text>
@@ -387,7 +387,7 @@ export const TodoList: React.FC = () => {
   const colors = getColors(mode);
 
   useEffect(() => {
-    fetchTodos();
+    fetchTodos(t);
   }, []);
 
   // Filter: Show uncompleted todos + today's completed todos

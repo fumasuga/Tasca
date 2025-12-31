@@ -34,7 +34,7 @@ export const AddTodo: React.FC = () => {
       Animated.timing(scaleAnim, { toValue: 1, duration: 100, useNativeDriver: Platform.OS !== 'web' }),
     ]).start();
 
-    await addTodo(trimmed);
+    await addTodo(trimmed, t);
     setText('');
     Keyboard.dismiss();
   };
